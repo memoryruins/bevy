@@ -1,3 +1,5 @@
+use bytemuck::Pod;
+
 use bevy_math::{Mat4, Vec2, Vec3, Vec4};
 
 pub use bevy_derive::Bytes;
@@ -12,7 +14,7 @@ pub trait Bytes {
 }
 
 /// A trait that indicates that it is safe to cast the type to a byte array reference.
-pub unsafe trait Byteable
+pub unsafe trait Byteable: Pod
 where
     Self: Sized,
 {
@@ -49,11 +51,12 @@ where
     T: Byteable + Clone,
 {
     fn from_bytes(bytes: &[u8]) -> Self {
-        unsafe {
-            let byte_ptr = bytes.as_ptr();
-            let ptr = byte_ptr as *const Self;
-            (*ptr).clone()
-        }
+        bytemuck::from_bytes::<T>(bytes).clone()
+        // unsafe {
+        //     let byte_ptr = bytes.as_ptr();
+        //     let ptr = byte_ptr as *const Self;
+        //     (*ptr).clone()
+        // }
     }
 }
 
@@ -62,8 +65,9 @@ where
     T: Byteable,
 {
     fn as_bytes(&self) -> &[u8] {
-        let len = std::mem::size_of_val(self);
-        unsafe { core::slice::from_raw_parts(self as *const Self as *const u8, len) }
+        bytemuck::bytes_of(self)
+        // let len = std::mem::size_of_val(self);
+        // unsafe { core::slice::from_raw_parts(self as *const Self as *const u8, len) }
     }
 }
 
@@ -72,17 +76,18 @@ where
     T: Byteable,
 {
     fn as_bytes(&self) -> &[u8] {
-        let len = std::mem::size_of_val(self);
-        unsafe { core::slice::from_raw_parts(self as *const Self as *const u8, len) }
+        bytemuck::cast_slice(self)
+        // let len = std::mem::size_of_val(self);
+        // unsafe { core::slice::from_raw_parts(self as *const Self as *const u8, len) }
     }
 }
 
-unsafe impl<T> Byteable for [T]
-where
-    Self: Sized,
-    T: Byteable,
-{
-}
+// unsafe impl<T> Byteable for [T]
+// where
+//     Self: Sized,
+//     T: Byteable,
+// {
+// }
 unsafe impl<T> Byteable for [T; 2] where T: Byteable {}
 unsafe impl<T> Byteable for [T; 3] where T: Byteable {}
 unsafe impl<T> Byteable for [T; 4] where T: Byteable {}
@@ -100,11 +105,11 @@ unsafe impl Byteable for i64 {}
 unsafe impl Byteable for isize {}
 unsafe impl Byteable for f32 {}
 unsafe impl Byteable for f64 {}
-unsafe impl Byteable for Vec2 {}
-// NOTE: Vec3 actually takes up the size of 4 floats / 16 bytes due to SIMD. This is actually convenient because GLSL
-// uniform buffer objects pad Vec3s to be 16 bytes.
-unsafe impl Byteable for Vec3 {}
-unsafe impl Byteable for Vec4 {}
+// unsafe impl Byteable for Vec2 {}
+// // NOTE: Vec3 actually takes up the size of 4 floats / 16 bytes due to SIMD. This is actually convenient because GLSL
+// // uniform buffer objects pad Vec3s to be 16 bytes.
+// unsafe impl Byteable for Vec3 {}
+// unsafe impl Byteable for Vec4 {}
 
 impl Bytes for Mat4 {
     fn write_bytes(&self, buffer: &mut [u8]) {
@@ -216,17 +221,17 @@ mod tests {
 
     #[test]
     fn test_vec2_round_trip() {
-        test_round_trip(Vec2::new(1.0, 2.0));
+        test_round_trip(Vec2::new(1.0, 2.0).as_ref().clone());
     }
 
     #[test]
     fn test_vec3_round_trip() {
-        test_round_trip(Vec3::new(1.0, 2.0, 3.0));
+        test_round_trip(Vec3::new(1.0, 2.0, 3.0).as_ref().clone());
     }
 
     #[test]
     fn test_vec4_round_trip() {
-        test_round_trip(Vec4::new(1.0, 2.0, 3.0, 4.0));
+        test_round_trip(Vec4::new(1.0, 2.0, 3.0, 4.0).as_ref().clone());
     }
 
     #[test]
