@@ -21,3 +21,8 @@ impl<K, V> HashMapExt for HashMap<K, V> {
         HashMap::with_capacity_and_hasher(cap, RandomState::default())
     }
 }
+
+#[inline]
+pub fn default<T: Default>() -> T {
+    Default::default()
+}
