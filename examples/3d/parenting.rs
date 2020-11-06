@@ -30,7 +30,7 @@ fn setup(
     let cube_handle = meshes.add(Mesh::from(shape::Cube { size: 1.0 }));
     let cube_material_handle = materials.add(StandardMaterial {
         albedo: Color::rgb(0.8, 0.7, 0.6),
-        ..Default::default()
+        ..default()
     });
 
     commands
@@ -39,7 +39,7 @@ fn setup(
             mesh: cube_handle.clone(),
             material: cube_material_handle.clone(),
             transform: Transform::from_translation(Vec3::new(0.0, 0.0, 1.0)),
-            ..Default::default()
+            ..default()
         })
         .with(Rotator)
         .with_children(|parent| {
@@ -48,18 +48,18 @@ fn setup(
                 mesh: cube_handle,
                 material: cube_material_handle,
                 transform: Transform::from_translation(Vec3::new(0.0, 0.0, 3.0)),
-                ..Default::default()
+                ..default()
             });
         })
         // light
         .spawn(LightComponents {
             transform: Transform::from_translation(Vec3::new(4.0, 5.0, -4.0)),
-            ..Default::default()
+            ..default()
         })
         // camera
         .spawn(Camera3dComponents {
             transform: Transform::from_translation(Vec3::new(5.0, 10.0, 10.0))
                 .looking_at(Vec3::default(), Vec3::unit_y()),
-            ..Default::default()
+            ..default()
         });
 }

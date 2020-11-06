@@ -23,17 +23,17 @@ fn setup(
         .spawn(PbrComponents {
             mesh: meshes.add(Mesh::from(shape::Cube { size: 1.0 })),
             material: materials.add(Color::rgb(0.8, 0.7, 0.6).into()),
-            ..Default::default()
+            ..default()
         })
         // light
         .spawn(LightComponents {
             transform: Transform::from_translation(Vec3::new(4.0, 8.0, 4.0)),
-            ..Default::default()
+            ..default()
         })
         // camera
         .spawn(Camera3dComponents {
             transform: Transform::from_translation(Vec3::new(-3.0, 3.0, 5.0))
                 .looking_at(Vec3::default(), Vec3::unit_y()),
-            ..Default::default()
+            ..default()
         });
 }

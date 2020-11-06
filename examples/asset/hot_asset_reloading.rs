@@ -27,12 +27,12 @@ fn setup(mut commands: Commands, asset_server: Res<AssetServer>) {
         // light
         .spawn(LightComponents {
             transform: Transform::from_translation(Vec3::new(4.0, 5.0, 4.0)),
-            ..Default::default()
+            ..default()
         })
         // camera
         .spawn(Camera3dComponents {
             transform: Transform::from_translation(Vec3::new(2.0, 2.0, 6.0))
                 .looking_at(Vec3::default(), Vec3::unit_y()),
-            ..Default::default()
+            ..default()
         });
 }

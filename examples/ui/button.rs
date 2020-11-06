@@ -73,10 +73,10 @@ fn setup(
                 justify_content: JustifyContent::Center,
                 // vertically center child text
                 align_items: AlignItems::Center,
-                ..Default::default()
+                ..default()
             },
             material: button_materials.normal.clone(),
-            ..Default::default()
+            ..default()
         })
         .with_children(|parent| {
             parent.spawn(TextComponents {
@@ -88,7 +88,7 @@ fn setup(
                         color: Color::rgb(0.9, 0.9, 0.9),
                     },
                 },
-                ..Default::default()
+                ..default()
             });
         });
 }

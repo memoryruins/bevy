@@ -56,17 +56,17 @@ fn load_atlas(
                 transform: Transform {
                     translation: Vec3::new(150.0, 0.0, 0.0),
                     scale: Vec3::splat(4.0),
-                    ..Default::default()
+                    ..default()
                 },
                 sprite: TextureAtlasSprite::new(vendor_index as u32),
                 texture_atlas: atlas_handle,
-                ..Default::default()
+                ..default()
             })
             // draw the atlas itself
             .spawn(SpriteComponents {
                 material: materials.add(texture_atlas_texture.into()),
                 transform: Transform::from_translation(Vec3::new(-300.0, 0.0, 0.0)),
-                ..Default::default()
+                ..default()
             });
 
         rpg_sprite_handles.atlas_loaded = true;

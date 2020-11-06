@@ -24,7 +24,7 @@ fn setup(
                 color: Color::WHITE,
                 texture: Some(texture.clone()),
             }),
-            ..Default::default()
+            ..default()
         })
         // With that entity as a parent, run a lambda that spawns its children
         .with_children(|parent| {
@@ -33,13 +33,13 @@ fn setup(
                 transform: Transform {
                     translation: Vec3::new(250.0, 0.0, 0.0),
                     scale: Vec3::splat(0.75),
-                    ..Default::default()
+                    ..default()
                 },
                 material: materials.add(ColorMaterial {
                     color: Color::BLUE,
                     texture: Some(texture.clone()),
                 }),
-                ..Default::default()
+                ..default()
             });
         })
         // Store parent entity for next sections
@@ -54,13 +54,13 @@ fn setup(
             transform: Transform {
                 translation: Vec3::new(-250.0, 0.0, 0.0),
                 scale: Vec3::splat(0.75),
-                ..Default::default()
+                ..default()
             },
             material: materials.add(ColorMaterial {
                 color: Color::RED,
                 texture: Some(texture.clone()),
             }),
-            ..Default::default()
+            ..default()
         })
         // Using the entity from the previous section as the parent:
         .with(Parent(parent));
@@ -72,13 +72,13 @@ fn setup(
             transform: Transform {
                 translation: Vec3::new(0.0, 250.0, 0.0),
                 scale: Vec3::splat(0.75),
-                ..Default::default()
+                ..default()
             },
             material: materials.add(ColorMaterial {
                 color: Color::GREEN,
                 texture: Some(texture),
             }),
-            ..Default::default()
+            ..default()
         })
         .current_entity()
         .unwrap();

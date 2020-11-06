@@ -20,7 +20,7 @@ fn main() {
         .add_resource(WindowDescriptor {
             width: 300,
             height: 300,
-            ..Default::default()
+            ..default()
         })
         .add_plugins(DefaultPlugins)
         // One time greet

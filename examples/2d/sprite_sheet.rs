@@ -33,7 +33,7 @@ fn setup(
         .spawn(SpriteSheetComponents {
             texture_atlas: texture_atlas_handle,
             transform: Transform::from_scale(Vec3::splat(6.0)),
-            ..Default::default()
+            ..default()
         })
         .with(Timer::from_seconds(0.1, true));
 }

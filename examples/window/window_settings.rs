@@ -9,7 +9,7 @@ fn main() {
             height: 300,
             vsync: true,
             resizable: false,
-            ..Default::default()
+            ..default()
         })
         .add_plugins(DefaultPlugins)
         .add_system(change_title.system())

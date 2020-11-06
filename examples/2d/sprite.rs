@@ -17,6 +17,6 @@ fn setup(
         .spawn(Camera2dComponents::default())
         .spawn(SpriteComponents {
             material: materials.add(texture_handle.into()),
-            ..Default::default()
+            ..default()
         });
 }

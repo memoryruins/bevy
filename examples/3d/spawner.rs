@@ -40,13 +40,13 @@ fn setup(
         // light
         .spawn(LightComponents {
             transform: Transform::from_translation(Vec3::new(4.0, -4.0, 5.0)),
-            ..Default::default()
+            ..default()
         })
         // camera
         .spawn(Camera3dComponents {
             transform: Transform::from_translation(Vec3::new(0.0, 15.0, 150.0))
                 .looking_at(Vec3::default(), Vec3::unit_y()),
-            ..Default::default()
+            ..default()
         });
 
     let mut rng = StdRng::from_entropy();
@@ -60,14 +60,14 @@ fn setup(
                     rng.gen_range(0.0, 1.0),
                     rng.gen_range(0.0, 1.0),
                 ),
-                ..Default::default()
+                ..default()
             }),
             transform: Transform::from_translation(Vec3::new(
                 rng.gen_range(-50.0, 50.0),
                 rng.gen_range(-50.0, 50.0),
                 0.0,
             )),
-            ..Default::default()
+            ..default()
         });
     }
 }

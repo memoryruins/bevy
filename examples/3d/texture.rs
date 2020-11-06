@@ -30,7 +30,7 @@ fn setup(
     let material_handle = materials.add(StandardMaterial {
         albedo_texture: Some(texture_handle.clone()),
         shaded: false,
-        ..Default::default()
+        ..default()
     });
 
     // this material modulates the texture to make it red (and slightly transparent)
@@ -56,13 +56,13 @@ fn setup(
             transform: Transform {
                 translation: Vec3::new(0.0, 0.0, 1.5),
                 rotation: Quat::from_rotation_x(-std::f32::consts::PI / 5.0),
-                ..Default::default()
+                ..default()
             },
             draw: Draw {
                 is_transparent: true,
-                ..Default::default()
+                ..default()
             },
-            ..Default::default()
+            ..default()
         })
         // textured quad - modulated
         .spawn(PbrComponents {
@@ -71,13 +71,13 @@ fn setup(
             transform: Transform {
                 translation: Vec3::new(0.0, 0.0, 0.0),
                 rotation: Quat::from_rotation_x(-std::f32::consts::PI / 5.0),
-                ..Default::default()
+                ..default()
             },
             draw: Draw {
                 is_transparent: true,
-                ..Default::default()
+                ..default()
             },
-            ..Default::default()
+            ..default()
         })
         // textured quad - modulated
         .spawn(PbrComponents {
@@ -86,18 +86,18 @@ fn setup(
             transform: Transform {
                 translation: Vec3::new(0.0, 0.0, -1.5),
                 rotation: Quat::from_rotation_x(-std::f32::consts::PI / 5.0),
-                ..Default::default()
+                ..default()
             },
             draw: Draw {
                 is_transparent: true,
-                ..Default::default()
+                ..default()
             },
-            ..Default::default()
+            ..default()
         })
         // camera
         .spawn(Camera3dComponents {
             transform: Transform::from_translation(Vec3::new(3.0, 5.0, 8.0))
                 .looking_at(Vec3::default(), Vec3::unit_y()),
-            ..Default::default()
+            ..default()
         });
 }

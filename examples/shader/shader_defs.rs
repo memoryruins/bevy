@@ -122,11 +122,11 @@ fn setup(
                             binding: 1,
                         },
                     ],
-                    ..Default::default()
+                    ..default()
                 },
             )]),
             transform: Transform::from_translation(Vec3::new(-2.0, 0.0, 0.0)),
-            ..Default::default()
+            ..default()
         })
         .with(green_material)
         // cube
@@ -148,17 +148,17 @@ fn setup(
                             binding: 1,
                         },
                     ],
-                    ..Default::default()
+                    ..default()
                 },
             )]),
             transform: Transform::from_translation(Vec3::new(2.0, 0.0, 0.0)),
-            ..Default::default()
+            ..default()
         })
         .with(blue_material)
         // camera
         .spawn(Camera3dComponents {
             transform: Transform::from_translation(Vec3::new(3.0, 5.0, -8.0))
                 .looking_at(Vec3::default(), Vec3::unit_y()),
-            ..Default::default()
+            ..default()
         });
 }

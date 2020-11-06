@@ -39,7 +39,7 @@ fn setup(
             height: 600,
             vsync: false,
             title: "second window".to_string(),
-            ..Default::default()
+            ..default()
         },
     });
 
@@ -60,7 +60,7 @@ fn setup(
                 format: TextureFormat::Depth32Float,
                 usage: TextureUsage::OUTPUT_ATTACHMENT,
                 sample_count: msaa.samples,
-                ..Default::default()
+                ..default()
             },
         ),
     );
@@ -158,23 +158,23 @@ fn setup(
         // light
         .spawn(LightComponents {
             transform: Transform::from_translation(Vec3::new(4.0, 5.0, 4.0)),
-            ..Default::default()
+            ..default()
         })
         // main camera
         .spawn(Camera3dComponents {
             transform: Transform::from_translation(Vec3::new(0.0, 0.0, 6.0))
                 .looking_at(Vec3::default(), Vec3::unit_y()),
-            ..Default::default()
+            ..default()
         })
         // second window camera
         .spawn(Camera3dComponents {
             camera: Camera {
                 name: Some("Secondary".to_string()),
                 window: window_id,
-                ..Default::default()
+                ..default()
             },
             transform: Transform::from_translation(Vec3::new(6.0, 0.0, 0.0))
                 .looking_at(Vec3::default(), Vec3::unit_y()),
-            ..Default::default()
+            ..default()
         });
 }

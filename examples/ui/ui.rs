@@ -21,10 +21,10 @@ fn setup(
             style: Style {
                 size: Size::new(Val::Percent(100.0), Val::Percent(100.0)),
                 justify_content: JustifyContent::SpaceBetween,
-                ..Default::default()
+                ..default()
             },
             material: materials.add(Color::NONE.into()),
-            ..Default::default()
+            ..default()
         })
         .with_children(|parent| {
             parent
@@ -33,10 +33,10 @@ fn setup(
                     style: Style {
                         size: Size::new(Val::Px(200.0), Val::Percent(100.0)),
                         border: Rect::all(Val::Px(2.0)),
-                        ..Default::default()
+                        ..default()
                     },
                     material: materials.add(Color::rgb(0.65, 0.65, 0.65).into()),
-                    ..Default::default()
+                    ..default()
                 })
                 .with_children(|parent| {
                     parent
@@ -45,17 +45,17 @@ fn setup(
                             style: Style {
                                 size: Size::new(Val::Percent(100.0), Val::Percent(100.0)),
                                 align_items: AlignItems::FlexEnd,
-                                ..Default::default()
+                                ..default()
                             },
                             material: materials.add(Color::rgb(0.15, 0.15, 0.15).into()),
-                            ..Default::default()
+                            ..default()
                         })
                         .with_children(|parent| {
                             // text
                             parent.spawn(TextComponents {
                                 style: Style {
                                     margin: Rect::all(Val::Px(5.0)),
-                                    ..Default::default()
+                                    ..default()
                                 },
                                 text: Text {
                                     value: "Text Example".to_string(),
@@ -65,7 +65,7 @@ fn setup(
                                         color: Color::WHITE,
                                     },
                                 },
-                                ..Default::default()
+                                ..default()
                             });
                         });
                 })
@@ -73,10 +73,10 @@ fn setup(
                 .spawn(NodeComponents {
                     style: Style {
                         size: Size::new(Val::Px(200.0), Val::Percent(100.0)),
-                        ..Default::default()
+                        ..default()
                     },
                     material: materials.add(Color::rgb(0.15, 0.15, 0.15).into()),
-                    ..Default::default()
+                    ..default()
                 })
                 // absolute positioning
                 .spawn(NodeComponents {
@@ -86,22 +86,22 @@ fn setup(
                         position: Rect {
                             left: Val::Px(210.0),
                             bottom: Val::Px(10.0),
-                            ..Default::default()
+                            ..default()
                         },
                         border: Rect::all(Val::Px(20.0)),
-                        ..Default::default()
+                        ..default()
                     },
                     material: materials.add(Color::rgb(0.4, 0.4, 1.0).into()),
-                    ..Default::default()
+                    ..default()
                 })
                 .with_children(|parent| {
                     parent.spawn(NodeComponents {
                         style: Style {
                             size: Size::new(Val::Percent(100.0), Val::Percent(100.0)),
-                            ..Default::default()
+                            ..default()
                         },
                         material: materials.add(Color::rgb(0.8, 0.8, 1.0).into()),
-                        ..Default::default()
+                        ..default()
                     });
                 })
                 // render order test: reddest in the back, whitest in the front (flex center)
@@ -111,24 +111,24 @@ fn setup(
                         position_type: PositionType::Absolute,
                         align_items: AlignItems::Center,
                         justify_content: JustifyContent::Center,
-                        ..Default::default()
+                        ..default()
                     },
                     material: materials.add(Color::NONE.into()),
                     draw: Draw {
                         is_transparent: true,
-                        ..Default::default()
+                        ..default()
                     },
-                    ..Default::default()
+                    ..default()
                 })
                 .with_children(|parent| {
                     parent
                         .spawn(NodeComponents {
                             style: Style {
                                 size: Size::new(Val::Px(100.0), Val::Px(100.0)),
-                                ..Default::default()
+                                ..default()
                             },
                             material: materials.add(Color::rgb(1.0, 0.0, 0.0).into()),
-                            ..Default::default()
+                            ..default()
                         })
                         .with_children(|parent| {
                             parent
@@ -139,12 +139,12 @@ fn setup(
                                         position: Rect {
                                             left: Val::Px(20.0),
                                             bottom: Val::Px(20.0),
-                                            ..Default::default()
+                                            ..default()
                                         },
-                                        ..Default::default()
+                                        ..default()
                                     },
                                     material: materials.add(Color::rgb(1.0, 0.3, 0.3).into()),
-                                    ..Default::default()
+                                    ..default()
                                 })
                                 .spawn(NodeComponents {
                                     style: Style {
@@ -153,12 +153,12 @@ fn setup(
                                         position: Rect {
                                             left: Val::Px(40.0),
                                             bottom: Val::Px(40.0),
-                                            ..Default::default()
+                                            ..default()
                                         },
-                                        ..Default::default()
+                                        ..default()
                                     },
                                     material: materials.add(Color::rgb(1.0, 0.5, 0.5).into()),
-                                    ..Default::default()
+                                    ..default()
                                 })
                                 .spawn(NodeComponents {
                                     style: Style {
@@ -167,12 +167,12 @@ fn setup(
                                         position: Rect {
                                             left: Val::Px(60.0),
                                             bottom: Val::Px(60.0),
-                                            ..Default::default()
+                                            ..default()
                                         },
-                                        ..Default::default()
+                                        ..default()
                                     },
                                     material: materials.add(Color::rgb(1.0, 0.7, 0.7).into()),
-                                    ..Default::default()
+                                    ..default()
                                 })
                                 // alpha test
                                 .spawn(NodeComponents {
@@ -182,16 +182,16 @@ fn setup(
                                         position: Rect {
                                             left: Val::Px(80.0),
                                             bottom: Val::Px(80.0),
-                                            ..Default::default()
+                                            ..default()
                                         },
-                                        ..Default::default()
+                                        ..default()
                                     },
                                     material: materials.add(Color::rgba(1.0, 0.9, 0.9, 0.4).into()),
                                     draw: Draw {
                                         is_transparent: true,
-                                        ..Default::default()
+                                        ..default()
                                     },
-                                    ..Default::default()
+                                    ..default()
                                 });
                         });
                 })
@@ -202,29 +202,29 @@ fn setup(
                         position_type: PositionType::Absolute,
                         justify_content: JustifyContent::Center,
                         align_items: AlignItems::FlexEnd,
-                        ..Default::default()
+                        ..default()
                     },
                     material: materials.add(Color::NONE.into()),
                     draw: Draw {
                         is_transparent: true,
-                        ..Default::default()
+                        ..default()
                     },
-                    ..Default::default()
+                    ..default()
                 })
                 .with_children(|parent| {
                     // bevy logo (image)
                     parent.spawn(ImageComponents {
                         style: Style {
                             size: Size::new(Val::Px(500.0), Val::Auto),
-                            ..Default::default()
+                            ..default()
                         },
                         material: materials
                             .add(asset_server.load("branding/bevy_logo_dark_big.png").into()),
                         draw: Draw {
                             is_transparent: true,
-                            ..Default::default()
+                            ..default()
                         },
-                        ..Default::default()
+                        ..default()
                     });
                 });
         });

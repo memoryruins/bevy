@@ -51,7 +51,7 @@ fn setup(
             material: materials.add(Color::rgb(0.5, 0.5, 1.0).into()),
             transform: Transform::from_translation(Vec3::new(0.0, -215.0, 0.0)),
             sprite: Sprite::new(Vec2::new(120.0, 30.0)),
-            ..Default::default()
+            ..default()
         })
         .with(Paddle { speed: 500.0 })
         .with(Collider::Paddle)
@@ -60,7 +60,7 @@ fn setup(
             material: materials.add(Color::rgb(1.0, 0.5, 0.5).into()),
             transform: Transform::from_translation(Vec3::new(0.0, -50.0, 1.0)),
             sprite: Sprite::new(Vec2::new(30.0, 30.0)),
-            ..Default::default()
+            ..default()
         })
         .with(Ball {
             velocity: 400.0 * Vec3::new(0.5, -0.5, 0.0).normalize(),
@@ -80,11 +80,11 @@ fn setup(
                 position: Rect {
                     top: Val::Px(5.0),
                     left: Val::Px(5.0),
-                    ..Default::default()
+                    ..default()
                 },
-                ..Default::default()
+                ..default()
             },
-            ..Default::default()
+            ..default()
         });
 
     // Add walls
@@ -98,7 +98,7 @@ fn setup(
             material: wall_material.clone(),
             transform: Transform::from_translation(Vec3::new(-bounds.x() / 2.0, 0.0, 0.0)),
             sprite: Sprite::new(Vec2::new(wall_thickness, bounds.y() + wall_thickness)),
-            ..Default::default()
+            ..default()
         })
         .with(Collider::Solid)
         // right
@@ -106,7 +106,7 @@ fn setup(
             material: wall_material.clone(),
             transform: Transform::from_translation(Vec3::new(bounds.x() / 2.0, 0.0, 0.0)),
             sprite: Sprite::new(Vec2::new(wall_thickness, bounds.y() + wall_thickness)),
-            ..Default::default()
+            ..default()
         })
         .with(Collider::Solid)
         // bottom
@@ -114,7 +114,7 @@ fn setup(
             material: wall_material.clone(),
             transform: Transform::from_translation(Vec3::new(0.0, -bounds.y() / 2.0, 0.0)),
             sprite: Sprite::new(Vec2::new(bounds.x() + wall_thickness, wall_thickness)),
-            ..Default::default()
+            ..default()
         })
         .with(Collider::Solid)
         // top
@@ -122,7 +122,7 @@ fn setup(
             material: wall_material,
             transform: Transform::from_translation(Vec3::new(0.0, bounds.y() / 2.0, 0.0)),
             sprite: Sprite::new(Vec2::new(bounds.x() + wall_thickness, wall_thickness)),
-            ..Default::default()
+            ..default()
         })
         .with(Collider::Solid);
 
@@ -149,7 +149,7 @@ fn setup(
                     material: brick_material.clone(),
                     sprite: Sprite::new(brick_size),
                     transform: Transform::from_translation(brick_position),
-                    ..Default::default()
+                    ..default()
                 })
                 .with(Collider::Scorable);
         }

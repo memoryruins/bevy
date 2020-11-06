@@ -37,7 +37,7 @@ fn setup(
     // You can also add assets directly to their Assets<T> storage:
     let material_handle = materials.add(StandardMaterial {
         albedo: Color::rgb(0.8, 0.7, 0.6),
-        ..Default::default()
+        ..default()
     });
 
     // Add entities to the world:
@@ -47,31 +47,31 @@ fn setup(
             mesh: monkey_handle,
             material: material_handle.clone(),
             transform: Transform::from_translation(Vec3::new(-3.0, 0.0, 0.0)),
-            ..Default::default()
+            ..default()
         })
         // cube
         .spawn(PbrComponents {
             mesh: cube_handle,
             material: material_handle.clone(),
             transform: Transform::from_translation(Vec3::new(0.0, 0.0, 0.0)),
-            ..Default::default()
+            ..default()
         })
         // sphere
         .spawn(PbrComponents {
             mesh: sphere_handle,
             material: material_handle,
             transform: Transform::from_translation(Vec3::new(3.0, 0.0, 0.0)),
-            ..Default::default()
+            ..default()
         })
         // light
         .spawn(LightComponents {
             transform: Transform::from_translation(Vec3::new(4.0, 5.0, 4.0)),
-            ..Default::default()
+            ..default()
         })
         // camera
         .spawn(Camera3dComponents {
             transform: Transform::from_translation(Vec3::new(0.0, 3.0, 10.0))
                 .looking_at(Vec3::default(), Vec3::unit_y()),
-            ..Default::default()
+            ..default()
         });
 }

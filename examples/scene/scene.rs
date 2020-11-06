@@ -107,7 +107,7 @@ fn infotext_system(mut commands: Commands, asset_server: Res<AssetServer>) {
         .spawn(TextComponents {
             style: Style {
                 align_self: AlignSelf::FlexEnd,
-                ..Default::default()
+                ..default()
             },
             text: Text {
                 value: "Nothing to see in this window! Check the console output!".to_string(),
@@ -117,6 +117,6 @@ fn infotext_system(mut commands: Commands, asset_server: Res<AssetServer>) {
                     color: Color::WHITE,
                 },
             },
-            ..Default::default()
+            ..default()
         });
 }
